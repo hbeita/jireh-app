@@ -1,0 +1,119 @@
+### App planning structure
+
+```
+education_hub/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/         # Shared or small components
+│   │   ├── Button/
+│   │   ├── __tests__      // in each component folder will include the set of jest tests
+│   │   ├── Input/
+│   │   ├── Modal/
+│   │   └── ...
+│   ├── layouts/            # Layout components
+│   │   ├── Header/
+│   │   ├── Footer/
+│   │   ├── Sidebar/
+│   │   └── ...
+│   ├── views/              # Or 'pages', for each distinct page of  app
+│   │   ├── Home/
+│   │   ├── About/
+│   │   ├── Dashboard/
+│   │   └── ...
+│   ├── contexts/           # Contexts for state management
+│   │   ├── AuthContext/
+│   │   └── ThemeContext/
+│   ├── hooks/              # Custom hooks
+│   │   ├── useFetch/
+│   │   ├── useForm/
+│   │   └── ...
+│   ├── utils/              # Utility functions and helpers
+│   ├── app/                # Core app component(s)
+│   │   ├── App.jsx
+│   │   └── ...
+│   ├── assets/             # Static files like images, fonts, etc.
+│   ├── styles/             # Global styles, variables, theme definitions
+│   │   ├── global.css
+│   │   └── ...
+│   └── index.js            # Entry point of your app
+├── package.json
+└── ...
+
+```
+
+### Component structure
+
+For each component, especially larger ones, consider having a dedicated folder with its JS/TSX file, styling, and tests:
+
+```
+components/
+└── Button/
+    ├── Button.jsx
+    ├── Button.module.css   # If using CSS Modules
+    └── Button.test.jsx
+
+```
+
+### State Management
+
+Place contexts or state management logic in a separate contexts or store (for Redux) directory. This helps in managing application-wide state:
+
+```
+contexts/
+├── AuthContext.jsx
+└── ThemeContext.jsx
+```
+
+### Custom Hooks
+
+```
+hooks/
+├── useFetch.jsx
+└── useForm.jsx
+```
+
+### Utility functions
+
+```
+utils/
+├── api.js
+└── helpers.js
+
+```
+
+### Styling
+
+Keep global styles, variables, and themes in a styles directory. Component-specific styles can be alongside their components:
+
+```
+styles/
+├── global.css
+└── themes.css
+```
+
+### Layout and Pages
+
+Separate your layouts and pages (or views). Layouts are reusable across different pages, while pages are unique:
+
+```
+layouts/
+└── MainLayout.tsx
+
+views/
+├── Home/
+├── About/
+└── Dashboard/
+```
+
+### Assets
+
+Static assets like images, fonts, and icons should be placed in an assets folder:
+
+```
+assets/
+├── images/
+├── fonts/
+└── icons/
+```
+
